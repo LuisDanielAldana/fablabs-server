@@ -12,6 +12,7 @@ const MaterialSchema = new mongoose.Schema(
           type: String,
           default: null
         },
+        // Amount charged for using the material
         price: {
             type: Number,
             required: true,
@@ -23,7 +24,7 @@ const MaterialSchema = new mongoose.Schema(
 const EquipmentSchema = new mongoose.Schema(
     {
         registration_number:{
-            Type: String,
+            type: String,
             required: true,
             default: null
         },
@@ -36,21 +37,27 @@ const EquipmentSchema = new mongoose.Schema(
             type: String,
             default: null
         },
+        // Amount charged for usage time
         price: {
             type: Number,
             required: true,
             default: null
         },
-        // id's of the equipment available for this service
         available: {
             type: Boolean,
-            required: true,
             default: true
         },
         material: {
             type: [MaterialSchema],
-            required: true,
             default: null
+        },
+        deleted: {
+            type: Boolean,
+            default: false
+        },
+        created: {
+            type: Date,
+            default: Date.now
         }
     }
 );

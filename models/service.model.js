@@ -28,6 +28,15 @@ const ServiceSchema = new mongoose.Schema(
             ref: "Equipment",
             required: true,
             default: null
+        },
+        deleted: {
+            type: Boolean,
+            required: true,
+            default: false
+        },
+        created: {
+            type: Date,
+            default: Date.now
         }
     }
 );
