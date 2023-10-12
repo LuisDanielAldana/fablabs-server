@@ -91,6 +91,11 @@ async function updateEquipment(req, res){
             image: image,
             price: price
         })
+
+        if (!equipment){
+            res.status(404).json({message: "Equipment not found"})
+        }
+
         res.status(200).json({
             message: "Equipment successfully updated",
             obj: equipment
@@ -109,7 +114,7 @@ async function changeDeleteStatus(req, res){
         const equipment = await Equipment.findOne({_id: _id});
 
         if (!equipment) {
-            return res.status(404).json({ message: 'User not found' });
+            return res.status(404).json({ message: 'Equipment not found' });
         }
 
         equipment.deleted = !equipment.deleted;

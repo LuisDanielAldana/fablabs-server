@@ -35,6 +35,11 @@ const OrderSchema = new mongoose.Schema(
             required: true,
             default: null
         },
+        file: {
+          type: String,
+          required: true,
+          default: null
+        },
         deleted: {
             type: Boolean,
             required: true,
@@ -46,6 +51,7 @@ const OrderSchema = new mongoose.Schema(
         }
     }
 );
+
 
 
 const Order = mongoose.model('Order',OrderSchema);
