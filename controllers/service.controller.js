@@ -38,7 +38,7 @@ async function getServices(req, res){
         } else {
             const services = await Service.find({deleted: false})
             res.status(200).json({
-                message: "All users",
+                message: "All services",
                 obj: services
             })
         }
