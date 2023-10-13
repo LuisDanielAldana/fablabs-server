@@ -4,20 +4,16 @@ const authGontroller = require('../controllers/auth.controller')
 const bcrypt = require("bcryptjs")
 
 async function createUser(req, res){
-        const registration_number = req.body.registration_number;
         const name = req.body.name;
         const lastname = req.body.lastname;
         const email = req.body.email;
         const password = req.body.password;
-        const role = req.body.role;
         try{
             const user = await new User({
-                registration_number: registration_number,
                 name: name,
                 lastname: lastname,
                 email: email,
                 password: password,
-                role: role
             }).save();
             res.status(201).json({
                 obj: user,

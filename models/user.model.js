@@ -6,7 +6,6 @@ const UserSchema = new mongoose.Schema(
     {
         registration_number: {
           type: String,
-          required: true,
           default: null
 
         },
@@ -33,7 +32,6 @@ const UserSchema = new mongoose.Schema(
         // Role of the user, could be student, administrative or teacher
         role: {
             type: String,
-            required: true,
             default: "Student"
         },
         credit: {
