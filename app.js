@@ -10,6 +10,7 @@ require('dotenv').config()
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const equipmentRouter = require('./routes/equipment');
+const serviceRouter = require('./routes/services')
 
 const mongoose = require("mongoose");
 
@@ -41,5 +42,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/equipment', equipmentRouter);
+app.use('/services/', serviceRouter);
 
 module.exports = app;
