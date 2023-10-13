@@ -26,12 +26,10 @@ const ServiceSchema = new mongoose.Schema(
         equipment: {
             type: [mongoose.Schema.Types.ObjectId],
             ref: "Equipment",
-            required: true,
             default: null
         },
         deleted: {
             type: Boolean,
-            required: true,
             default: false
         },
         created: {
