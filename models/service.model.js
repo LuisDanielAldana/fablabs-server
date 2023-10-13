@@ -4,7 +4,7 @@ const {Schema} = require("mongoose");
 const ServiceSchema = new mongoose.Schema(
     {
         registration_number:{
-            Type: String,
+            type: String,
             required: true,
             default: null
         },
@@ -30,6 +30,7 @@ const ServiceSchema = new mongoose.Schema(
         },
         deleted: {
             type: Boolean,
+            required: true,
             default: false
         },
         created: {
