@@ -8,8 +8,8 @@ router.get('/:serviceId', serviceController.getServiceById)
 router.post('/', serviceController.createService);
 router.put('/:serviceId', serviceController.updateService);
 router.put('/:serviceId/changeDeleteStatus', serviceController.changeDeleteStatus);
-router.put('/:serviceId', serviceController.addEquipment);
-router.put('/:serviceId', serviceController.removeEquipment);
+router.put('/:serviceId/addEquipment', serviceController.addEquipment);
+router.put('/:serviceId/removeEquipment', serviceController.removeEquipment);
 router.get('/:serviceId/getEquipment', serviceController.getEquipment);
 
 module.exports = router;
