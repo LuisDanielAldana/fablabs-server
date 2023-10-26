@@ -29,7 +29,7 @@ const UserSchema = new mongoose.Schema(
             required: true,
             default: null
         },
-        // Role of the user, could be student, administrative or teacher
+        // Role of the user, could be student, administrative, teacher or other
         role: {
             type: String,
             default: "Student"

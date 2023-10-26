@@ -1,5 +1,5 @@
 const User = require('../models/user.model').User;
-const authGontroller = require('../controllers/auth.controller')
+const authController = require('../controllers/auth.controller')
 
 const bcrypt = require("bcryptjs")
 
@@ -150,7 +150,7 @@ async function login(req, res) {
             return res.status(401).json({ message: 'Invalid username or password' });
         }
 
-        const token = authGontroller.generateJWT(user._id, user.email, user.role)
+        const token = authController.generateJWT(user._id, user.email, user.role)
 
         res.status(200).json({
             token: token,

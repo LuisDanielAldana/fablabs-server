@@ -1,3 +1,4 @@
+const {Service} = require("../models/service.model");
 const Equipment = require('../models/equipment.model').Equipment
 
 async function createEquipment(req, res){
@@ -5,14 +6,34 @@ async function createEquipment(req, res){
     const name = req.body.name;
     const image = req.body.image;
     const price = req.body.price;
+    const serviceId = req.body.serviceId;
 
     try{
+
+        const response = await Equipment.findOne({
+            registration_number: registration_number
+        })
+
+        if(response){
+            return res.status(404).json({message: "Duplicate Registration number"})
+        }
+
         const equipment = await new Equipment({
             registration_number: registration_number,
             name: name,
             image: "https://res.cloudinary.com/dficrwc6r/image/upload/v1694302079/cortadora-laser_i0entg.jpg",
             price: price
         }).save()
+
+        const service = await Service.findById(serviceId);
+
+        if (!service) {
+            return res.status(404).json({ message: 'Service not found' });
+        }
+
+        service.equipment.push(equipment._id);
+
+        await service.save();
         res.status(201).json({
             message: "Equipment successfully created",
             obj: equipment
