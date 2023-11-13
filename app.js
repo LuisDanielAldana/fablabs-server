@@ -43,7 +43,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public', 'admin-panel')));
 
-app.listen(3000, () => console.log("App listening on port 3000"))
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
