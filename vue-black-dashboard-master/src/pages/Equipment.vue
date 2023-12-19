@@ -10,44 +10,29 @@
         </div>
       </card>
     </div>
-    <button @click="getUsers()">OK</button>
+<!--    <button @click="getUsers()">OK</button>-->
   </div>
 </template>
+
 <script>
-import { BaseTable } from "@/components";
+import {BaseTable} from "@/components";
 import axios from 'axios'
-const tableColumns = ["_id", "lastname", "name", "email", "role"];
+const tableColumns = ["ID", "Equipo", "Precio", "Status"];
 const tableData = []
 
 export default {
-  name: "Users",
+  name: "Equipment",
   components: {
     BaseTable
   },
   data() {
     return {
       table1:{
-        title: "Tabla Usuarios",
+        title: "Tabla Equipo",
         columns: [...tableColumns],
         data: [...tableData]
       }
     }
-  },
-  methods: {
-    async getUsers() {
-      try{
-        const response = await axios.get("https://jittery-hare-girdle.cyclic.app/users/")
-        this.table1.data = response.data.obj
-        console.log(this.tableData)
-        console.log("Ok")
-      } catch (e){
-        console.log("Error")
-        console.log(e)
-      }
-    }
-  },
-  async beforeMount() {
-    this.tableData = await this.getUsers()
   },
 }
 </script>

@@ -11,6 +11,8 @@ const Maps = () => import(/* webpackChunkName: "common" */ "@/pages/Maps.vue");
 const Typography = () => import(/* webpackChunkName: "common" */ "@/pages/Typography.vue");
 const TableList = () => import(/* webpackChunkName: "common" */ "@/pages/TableList.vue");
 const Users = () => import("@/pages/Users");
+const Equipment = () => import("@/pages/Equipment")
+const Services = () => import("@/pages/Services")
 
 const routes = [
   {
@@ -57,6 +59,16 @@ const routes = [
         path: "usuarios",
         name: "users",
         component: Users
+      },
+      {
+        path: "servicios",
+        name: "services",
+        component: Services
+      },
+      {
+        path: "equipo",
+        name: "equipment",
+        component: Equipment
       }
     ]
   },
