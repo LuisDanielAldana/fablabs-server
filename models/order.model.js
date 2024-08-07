@@ -20,8 +20,13 @@ const OrderSchema = new mongoose.Schema(
             required: true,
             default: null
         },
-        time: {
+        duration: {
             type: Number,
+            required: true,
+            default: null
+        },
+        scheduled_date:{
+            type: Date,
             required: true,
             default: null
         },
